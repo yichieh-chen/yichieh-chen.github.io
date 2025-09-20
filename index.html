@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的個人作品集</title>
+    <style>
+        /* 基本重置和全域樣式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header 樣式 */
+        .header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            margin: 0;
+            color: #61dafb;
+            font-size: 1.5rem;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+
+        .nav-list a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-list a:hover {
+            color: #61dafb;
+        }
+
+        /* 主要內容 */
+        main {
+            padding-top: 80px;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        /* About 區塊 */
+        .about {
+            background-color: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin: 0 auto;
+            object-fit: cover;
+            border: 5px solid #61dafb;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .placeholder-image {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, #61dafb, #21a9c7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight h4 {
+            margin: 0 0 0.5rem 0;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .highlight p {
+            margin: 0;
+            color: #666;
+        }
+
+        /* Social Media 區塊 */
+        .social {
+            padding: 5rem 0;
+            background-color: #fff;
+        }
+
+        .social .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .social h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .social-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .social-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            background: white;
+        }
+
+        .social-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .social-card h3 {
+            margin: 0 0 0.5rem 0;
+            color: #333;
+            font-size: 1.4rem;
+        }
+
+        .social-card p {
+            margin: 0 0 1.5rem 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .social-link {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #61dafb, #21a9c7);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, #21a9c7, #1890a0);
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer p {
+            margin: 0;
+            color: #ccc;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-list {
+                gap: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .placeholder-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .social-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>EJ's home</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#about">About me</a></li>
+                    <li><a href="#social">Find me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <!-- 使用你的 GitHub 頭像 -->
+                        <img src="https://avatars.githubusercontent.com/yichieh-chen?v=4&s=250" 
+                             alt="我的照片" 
+                             class="profile-image"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <!-- 如果照片載入失敗，顯示佔位符 -->
+                        <div class="placeholder-image" style="display: none;">
+                            <span>你的照片</span>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <h3>我是一位快樂的大學生</h3>
+                        <p>
+                            喜歡打排球、寫程式、看動漫。
+                        </p>
+                        <p>
+                            目前是大二，就讀於台科大資工系，每天為自己的未來焦慮。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Media Section -->
+        <section id="social" class="social">
+            <div class="container">
+                <h2>Find me on</h2>
+                <div class="social-grid">
+                    <div class="social-card">
+                        <div class="social-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram" />
+                        </div>
+                        <h3>Instagram</h3>
+                        <p>日常生活分享</p>
+                        <a href="https://www.instagram.com/ej.chen95/" target="_blank" class="social-link">
+                            @ej.chen95
+                        </a>
+                    </div>
+                    
+                    <div class="social-card">
+                        <div class="social-icon">
+                            <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" />
+                        </div>
+                        <h3>GitHub</h3>
+                        <p>程式碼作品集</p>
+                        <a href="https://github.com/yichieh-chen" target="_blank" class="social-link">
+                            @yichieh-chen
+                        </a>
+                    </div>
+                    
+                    <div class="social-card">
+                        <div class="social-icon">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg" alt="Discord" />
+                        </div>
+                        <h3>Discord</h3>
+                        <p>遊戲聊天交流</p>
+                        <a href="#" class="social-link" onclick="copyDiscord()">
+                            yichieh_chen
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 EJ's home. Made by React & Vite </p>
+    </footer>
+
+    <script>
+        function copyDiscord() {
+            // 複製 Discord 用戶名到剪貼簿
+            const discordUsername = 'yichieh_chen';
+            navigator.clipboard.writeText(discordUsername).then(function() {
+                alert('Discord 用戶名已複製到剪貼簿！');
+            }, function() {
+                alert('複製失敗，請手動複製：' + discordUsername);
+            });
+        }
+    </script>
+</body>
+</html>
