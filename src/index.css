@@ -2,6 +2,43 @@
 @import 'tailwindcss';
 
 :root {
+  --background: oklch(0.97 0.01 95);
+  --foreground: oklch(0.25 0.02 250);
+  --card: oklch(0.99 0.002 95);
+  --card-foreground: oklch(0.25 0.02 250);
+  --popover: oklch(0.99 0.002 95);
+  --popover-foreground: oklch(0.25 0.02 250);
+  --primary: oklch(0.56 0.14 165);
+  --primary-foreground: oklch(0.97 0.01 95);
+  --secondary: oklch(0.91 0.02 230);
+  --secondary-foreground: oklch(0.3 0.02 250);
+  --muted: oklch(0.93 0.015 235);
+  --muted-foreground: oklch(0.47 0.02 245);
+  --accent: oklch(0.88 0.03 220);
+  --accent-foreground: oklch(0.3 0.03 245);
+  --destructive: oklch(0.58 0.22 26);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.82 0.015 230);
+  --input: oklch(0.8 0.02 230);
+  --ring: oklch(0.56 0.14 165);
+
+  --terminal-bg: rgba(229, 245, 242, 0.9);
+  --terminal-panel: rgba(211, 235, 230, 0.9);
+  --terminal-border: rgba(42, 116, 100, 0.35);
+  --terminal-border-soft: rgba(53, 138, 118, 0.26);
+  --terminal-text: rgba(22, 72, 61, 0.94);
+  --terminal-text-muted: rgba(22, 72, 61, 0.72);
+  --terminal-accent-soft: rgba(72, 177, 153, 0.18);
+  --terminal-shadow: rgba(28, 136, 114, 0.28);
+
+  --page-gradient:
+    radial-gradient(circle at 0% 0%, rgba(55, 162, 255, 0.16), transparent 42%),
+    radial-gradient(circle at 100% 0%, rgba(42, 219, 157, 0.14), transparent 35%),
+    linear-gradient(145deg, #ecf4ff 0%, #f8fbff 45%, #f4fbff 100%);
+  --radius: 0.9rem;
+}
+
+:root[data-theme='dark'] {
   --background: oklch(0.16 0.02 250);
   --foreground: oklch(0.95 0.01 95);
   --card: oklch(0.2 0.02 248);
@@ -21,7 +58,20 @@
   --border: oklch(0.35 0.03 225);
   --input: oklch(0.3 0.03 230);
   --ring: oklch(0.77 0.15 165);
-  --radius: 0.9rem;
+
+  --terminal-bg: rgba(9, 19, 32, 0.92);
+  --terminal-panel: rgba(14, 28, 45, 0.96);
+  --terminal-border: rgba(104, 255, 199, 0.34);
+  --terminal-border-soft: rgba(104, 255, 199, 0.24);
+  --terminal-text: rgba(205, 255, 236, 0.98);
+  --terminal-text-muted: rgba(180, 255, 226, 0.74);
+  --terminal-accent-soft: rgba(34, 208, 149, 0.18);
+  --terminal-shadow: rgba(30, 255, 173, 0.45);
+
+  --page-gradient:
+    radial-gradient(circle at 0% 0%, rgba(65, 188, 255, 0.18), transparent 42%),
+    radial-gradient(circle at 100% 0%, rgba(54, 255, 173, 0.14), transparent 35%),
+    linear-gradient(145deg, #050a14 0%, #0a1322 45%, #0d162a 100%);
 }
 
 @theme inline {
@@ -55,6 +105,19 @@
     @apply border-border;
   }
 
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    transition:
+      color 0.45s ease,
+      background-color 0.45s ease,
+      border-color 0.45s ease,
+      box-shadow 0.45s ease,
+      fill 0.45s ease,
+      stroke 0.45s ease,
+      opacity 0.45s ease !important;
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -64,14 +127,12 @@
     margin: 0;
     min-height: 100vh;
     font-family: 'Sora', 'Noto Sans TC', sans-serif;
-    background-image:
-      radial-gradient(circle at 0% 0%, rgba(65, 188, 255, 0.18), transparent 42%),
-      radial-gradient(circle at 100% 0%, rgba(54, 255, 173, 0.14), transparent 35%),
-      linear-gradient(145deg, #050a14 0%, #0a1322 45%, #0d162a 100%);
+    background-image: var(--page-gradient);
     background-attachment: fixed;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.45s ease, color 0.45s ease;
   }
 
   #root {
