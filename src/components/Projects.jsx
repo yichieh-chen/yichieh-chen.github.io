@@ -1,25 +1,28 @@
-import React from 'react'
-import './Projects.css'
+import { ArrowUpRight, Github } from 'lucide-react'
+
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 
 function Projects() {
   const projects = [
     {
-      title: '個人作品集網站',
-      description: '使用 React + Vite 建立的響應式個人作品集網站，展示個人技能和專案經驗。',
+      title: 'Personal Portfolio Website',
+      description: 'A responsive portfolio website built with React and Vite to showcase my skills and project experience.',
       technologies: ['React', 'CSS3', 'Vite'],
       github: '#',
       demo: '#'
     },
     {
-      title: '待開發專案 1',
-      description: '這裡將展示你未來的第一個專案，可能是一個 Todo List 應用程式。',
+      title: 'Upcoming Project 1',
+      description: 'This space will feature your next project, potentially a modern Todo List application.',
       technologies: ['React', 'JavaScript', 'CSS'],
       github: '#',
       demo: '#'
     },
     {
-      title: '待開發專案 2',
-      description: '這裡將展示你未來的第二個專案，可能是一個天氣查詢應用程式。',
+      title: 'Upcoming Project 2',
+      description: 'This space will showcase another future project, such as a weather dashboard app.',
       technologies: ['React', 'API', 'CSS'],
       github: '#',
       demo: '#'
@@ -27,37 +30,47 @@ function Projects() {
   ]
 
   return (
-    <section id="projects" className="projects">
-      <div className="container">
-        <h2>我的專案</h2>
-        <div className="projects-grid">
-          {projects.map((project, index) => (
-            <div key={index} className="project-card">
-              <div className="project-image">
-                <div className="placeholder-project">
-                  <span>專案截圖</span>
-                </div>
+    <section id="projects" className="section-animate px-4 py-14 sm:px-0">
+      <div className="mx-auto w-[min(1120px,92vw)]">
+        <div className="mb-8">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">Projects</p>
+          <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">My Projects</h2>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {projects.map((project) => (
+            <Card key={project.title} className="group overflow-hidden bg-card/95 transition-all hover:-translate-y-1 hover:shadow-xl">
+              <div className="flex h-44 items-center justify-center border-b border-border bg-gradient-to-br from-orange-100 via-transparent to-cyan-100 text-sm font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                Project Preview
               </div>
-              <div className="project-content">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="project-technologies">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="tech-tag">
+              <CardHeader>
+                <CardTitle className="text-xl">{project.title}</CardTitle>
+                <CardDescription className="leading-7">{project.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <Badge key={tech} variant="secondary" className="rounded-full">
                       {tech}
-                    </span>
+                    </Badge>
                   ))}
                 </div>
-                <div className="project-links">
-                  <a href={project.github} className="project-link">
+              </CardContent>
+              <CardFooter className="grid grid-cols-2 gap-2">
+                <Button asChild variant="outline" className="w-full">
+                  <a href={project.github}>
+                    <Github className="h-4 w-4" />
                     GitHub
                   </a>
-                  <a href={project.demo} className="project-link demo">
+                </Button>
+                <Button asChild className="w-full">
+                  <a href={project.demo}>
+                    <ArrowUpRight className="h-4 w-4" />
                     Live Demo
                   </a>
-                </div>
-              </div>
-            </div>
+                </Button>
+              </CardFooter>
+            </Card>
           ))}
         </div>
       </div>

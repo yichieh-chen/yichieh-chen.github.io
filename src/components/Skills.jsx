@@ -1,5 +1,5 @@
-import React from 'react'
-import './Skills.css'
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 function Skills() {
   const skills = [
@@ -12,34 +12,46 @@ function Skills() {
   ]
 
   return (
-    <section id="skills" className="skills">
-      <div className="container">
-        <h2>我的技能</h2>
-        <div className="skills-grid">
-          {skills.map((skill, index) => (
-            <div key={index} className="skill-item">
-              <div className="skill-header">
-                <h3>{skill.name}</h3>
-                <span>{skill.level}%</span>
-              </div>
-              <div className="skill-bar">
-                <div 
-                  className="skill-progress" 
-                  style={{ width: `${skill.level}%` }}
-                ></div>
-              </div>
-            </div>
+    <section id="skills" className="section-animate px-4 py-14 sm:px-0">
+      <div className="mx-auto w-[min(1120px,92vw)]">
+        <div className="mb-8">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">Skills</p>
+          <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl">My Skills</h2>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {skills.map((skill) => (
+            <Card key={skill.name} className="overflow-hidden bg-card/95 transition-transform hover:-translate-y-1">
+              <CardHeader className="space-y-3 pb-2">
+                <div className="flex items-center justify-between gap-3">
+                  <CardTitle className="text-lg">{skill.name}</CardTitle>
+                  <Badge className="rounded-full px-3 py-1">{skill.level}%</Badge>
+                </div>
+                <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
+                  <div className="h-full rounded-full bg-gradient-to-r from-primary via-orange-400 to-cyan-500" style={{ width: `${skill.level}%` }} />
+                </div>
+              </CardHeader>
+            </Card>
           ))}
         </div>
-        
-        <div className="skills-description">
-          <h3>技術學習歷程</h3>
-          <p>
-            我從基礎的 HTML 和 CSS 開始學習網頁開發，逐步掌握了 JavaScript 
-            的核心概念。目前正在深入學習 React 框架，並且對後端技術如 Node.js 
-            也有基本的了解。我相信持續學習是成為優秀開發者的關鍵。
-          </p>
-        </div>
+
+        <Card className="mt-6 bg-secondary/40">
+          <CardHeader>
+            <CardTitle className="text-xl">Learning Journey</CardTitle>
+            <CardDescription className="text-sm leading-7 md:text-base">
+              I started my web development journey with HTML and CSS, then gradually built a strong foundation in JavaScript.
+              I am currently diving deeper into React and also building practical backend knowledge with Node.js. I believe
+              continuous learning is the key to becoming a great developer.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="flex flex-wrap gap-2">
+              <Badge variant="secondary">Continuous Learning</Badge>
+              <Badge variant="secondary">Hands-on Practice</Badge>
+              <Badge variant="secondary">User Experience</Badge>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </section>
   )
