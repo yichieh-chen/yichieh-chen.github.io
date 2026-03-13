@@ -1,5 +1,6 @@
 import { Badge } from '@/components/ui/badge'
 import Interactive3DCard from '@/components/aceternity/Interactive3DCard'
+import ScrollReveal from '@/components/aceternity/ScrollReveal'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 function Skills() {
@@ -18,32 +19,35 @@ function Skills() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {skills.map((skill) => (
-            <Interactive3DCard key={skill.name} className="rounded-2xl" intensity={8}>
-              <Card className="terminal-pixel relative overflow-hidden rounded-2xl border border-emerald-400/40 bg-[#091320]/90 text-emerald-100 shadow-lg shadow-emerald-500/20 transition-transform hover:-translate-y-1">
-                <div className="pointer-events-none absolute inset-0 terminal-scanlines opacity-45" />
-                <div className="relative z-10 border-b border-emerald-400/30 bg-[#0e1c2d] px-4 py-2">
-                  <span className="text-[9px] tracking-[0.14em] text-emerald-200/80">skill.log</span>
-                </div>
-                <CardHeader className="relative z-10 space-y-3 pb-2">
-                  <div className="flex items-center justify-between gap-3">
-                    <CardTitle className="text-sm text-emerald-100">{skill.name}</CardTitle>
-                    <Badge className="rounded-full border border-emerald-300/40 bg-emerald-500/15 px-3 py-1 text-[10px] text-emerald-100">{skill.level}%</Badge>
+          {skills.map((skill, index) => (
+            <ScrollReveal key={skill.name} delay={index * 110}>
+              <Interactive3DCard className="rounded-2xl" intensity={8}>
+                <Card className="terminal-pixel relative overflow-hidden rounded-2xl border border-emerald-400/40 bg-[#091320]/90 text-emerald-100 shadow-lg shadow-emerald-500/20 transition-transform hover:-translate-y-1">
+                  <div className="pointer-events-none absolute inset-0 terminal-scanlines opacity-45" />
+                  <div className="relative z-10 border-b border-emerald-400/30 bg-[#0e1c2d] px-4 py-2">
+                    <span className="text-[9px] tracking-[0.14em] text-emerald-200/80">skill.log</span>
                   </div>
-                  <div className="h-2.5 w-full overflow-hidden rounded-full border border-emerald-300/30 bg-[#102338]">
-                    <div
-                      className="h-full rounded-full bg-[linear-gradient(90deg,#1ddf9d,#61d9ff)]"
-                      style={{ width: `${skill.level}%` }}
-                    />
-                  </div>
-                </CardHeader>
-              </Card>
-            </Interactive3DCard>
+                  <CardHeader className="relative z-10 space-y-3 pb-2">
+                    <div className="flex items-center justify-between gap-3">
+                      <CardTitle className="text-sm text-emerald-100">{skill.name}</CardTitle>
+                      <Badge className="rounded-full border border-emerald-300/40 bg-emerald-500/15 px-3 py-1 text-[10px] text-emerald-100">{skill.level}%</Badge>
+                    </div>
+                    <div className="h-2.5 w-full overflow-hidden rounded-full border border-emerald-300/30 bg-[#102338]">
+                      <div
+                        className="h-full rounded-full bg-[linear-gradient(90deg,#1ddf9d,#61d9ff)]"
+                        style={{ width: `${skill.level}%` }}
+                      />
+                    </div>
+                  </CardHeader>
+                </Card>
+              </Interactive3DCard>
+            </ScrollReveal>
           ))}
         </div>
 
-        <Interactive3DCard className="mt-6 rounded-3xl" intensity={6}>
-          <Card className="terminal-pixel relative overflow-hidden rounded-3xl border border-emerald-400/40 bg-[#091320]/90 text-emerald-100 shadow-lg shadow-emerald-500/20">
+        <ScrollReveal delay={180}>
+          <Interactive3DCard className="mt-6 rounded-3xl" intensity={6}>
+            <Card className="terminal-pixel relative overflow-hidden rounded-3xl border border-emerald-400/40 bg-[#091320]/90 text-emerald-100 shadow-lg shadow-emerald-500/20">
             <div className="pointer-events-none absolute inset-0 terminal-scanlines opacity-45" />
             <div className="relative z-10 border-b border-emerald-400/30 bg-[#0e1c2d] px-5 py-3">
               <span className="text-[10px] tracking-[0.15em] text-emerald-200/80">learning_journey.md</span>
@@ -62,8 +66,9 @@ function Skills() {
                 <Badge className="rounded-full border border-emerald-300/40 bg-emerald-500/15 text-[10px] text-emerald-100">Computer Graphics</Badge>
               </div>
             </CardContent>
-          </Card>
-        </Interactive3DCard>
+            </Card>
+          </Interactive3DCard>
+        </ScrollReveal>
       </div>
     </section>
   )

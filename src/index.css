@@ -227,4 +227,31 @@
       transparent 4px
     );
   }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0) scale(0.985);
+    filter: blur(4px);
+    will-change: opacity, transform, filter;
+    transition:
+      opacity 0.75s cubic-bezier(0.2, 0.65, 0.22, 1),
+      transform 0.75s cubic-bezier(0.2, 0.65, 0.22, 1),
+      filter 0.75s cubic-bezier(0.2, 0.65, 0.22, 1);
+  }
+
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal,
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      filter: none;
+      transform: none;
+      transition: none;
+    }
+  }
 }

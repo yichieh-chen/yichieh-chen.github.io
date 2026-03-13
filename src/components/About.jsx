@@ -1,6 +1,7 @@
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Interactive3DCard from '@/components/aceternity/Interactive3DCard'
+import ScrollReveal from '@/components/aceternity/ScrollReveal'
 import TypewriterText from '@/components/aceternity/TypewriterText'
 import profileCatImage from '@/assets/profile-cat.jpg'
 
@@ -18,8 +19,9 @@ function About() {
           <Badge variant="secondary" className="hidden rounded-full px-3 py-1 text-xs md:inline-flex">Front-end Learner</Badge>
         </div>
 
-        <Interactive3DCard className="rounded-3xl" intensity={9}>
-          <Card className="terminal-pixel relative overflow-hidden rounded-3xl border border-emerald-400/45 bg-[#091320]/90 text-emerald-100 shadow-2xl shadow-emerald-500/20 backdrop-blur-sm">
+        <ScrollReveal>
+          <Interactive3DCard className="rounded-3xl" intensity={9}>
+            <Card className="terminal-pixel relative overflow-hidden rounded-3xl border border-emerald-400/45 bg-[#091320]/90 text-emerald-100 shadow-2xl shadow-emerald-500/20 backdrop-blur-sm">
             <div className="pointer-events-none absolute inset-0 terminal-scanlines opacity-50" />
             <div className="relative z-10 flex items-center justify-between border-b border-emerald-400/30 bg-[#0e1c2d] px-5 py-3">
               <div className="flex items-center gap-2">
@@ -88,8 +90,9 @@ function About() {
                 </CardContent>
               </div>
             </div>
-          </Card>
-        </Interactive3DCard>
+            </Card>
+          </Interactive3DCard>
+        </ScrollReveal>
       </div>
     </section>
   )
