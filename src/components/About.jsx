@@ -19,14 +19,24 @@ function About() {
         </div>
 
         <Interactive3DCard className="rounded-3xl" intensity={9}>
-          <Card className="overflow-hidden rounded-3xl border-border/70 bg-card/82 shadow-2xl shadow-cyan-100/50 backdrop-blur-sm">
-            <div className="grid gap-8 p-6 md:grid-cols-[280px_1fr] md:p-8">
-              <div className="relative mx-auto flex h-64 w-64 items-center justify-center overflow-hidden rounded-full border border-border/70 bg-gradient-to-br from-orange-100 via-orange-50 to-cyan-100 text-sm font-bold tracking-[0.16em] text-muted-foreground">
-                <div className="absolute inset-0 bg-[conic-gradient(from_40deg,rgba(255,255,255,0),rgba(255,255,255,0.55),rgba(255,255,255,0))] animate-[spin_8s_linear_infinite]" />
+          <Card className="terminal-pixel relative overflow-hidden rounded-3xl border border-emerald-400/45 bg-[#091320]/90 text-emerald-100 shadow-2xl shadow-emerald-500/20 backdrop-blur-sm">
+            <div className="pointer-events-none absolute inset-0 terminal-scanlines opacity-50" />
+            <div className="relative z-10 flex items-center justify-between border-b border-emerald-400/30 bg-[#0e1c2d] px-5 py-3">
+              <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-400/90" />
+                <span className="h-2.5 w-2.5 rounded-full bg-amber-300/90" />
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-300/90" />
+              </div>
+              <p className="text-[10px] tracking-[0.16em] text-emerald-200/85">about_terminal.exe</p>
+            </div>
+
+            <div className="relative z-10 grid gap-8 p-6 md:grid-cols-[280px_1fr] md:p-8">
+              <div className="relative mx-auto flex h-64 w-64 items-center justify-center overflow-hidden rounded-2xl border border-emerald-400/45 bg-[#0b1a2b] text-sm font-bold tracking-[0.16em] text-emerald-200">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(110,255,190,0.14),transparent_60%)]" />
                 <img
                   src={profileImagePath}
                   alt="Profile"
-                  className="relative h-full w-full object-cover"
+                  className="relative h-full w-full object-cover opacity-92"
                   onError={(event) => {
                     event.currentTarget.style.display = 'none'
                     const fallback = event.currentTarget.nextElementSibling
@@ -39,7 +49,8 @@ function About() {
               </div>
               <div className="space-y-5">
                 <CardHeader className="p-0">
-                  <CardTitle className="text-2xl leading-tight md:text-3xl">
+                  <p className="text-[11px] tracking-[0.14em] text-emerald-300/80">$ ./introduce --profile EJ</p>
+                  <CardTitle className="text-lg leading-relaxed text-emerald-100 md:text-xl">
                     <TypewriterText
                       words={[
                         'Hi! My name is EJ.',
@@ -49,27 +60,28 @@ function About() {
                       speed={60}
                       deleteSpeed={34}
                       pauseMs={1200}
+                      cursorClassName="bg-emerald-300"
                     />
                   </CardTitle>
-                  <CardDescription className="text-base leading-7">
+                  <CardDescription className="font-mono text-sm leading-7 text-emerald-100/80 md:text-base">
                     Welcome to my portfolio. I focus on front-end development, enjoy learning new technologies, and love turning creative ideas into real web experiences.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-5 p-0">
-                  <p className="text-sm leading-7 text-muted-foreground md:text-base">
+                  <p className="font-mono text-sm leading-7 text-emerald-100/75 md:text-base">
                     I am currently learning React and exploring how to build user-friendly interfaces. Through consistent practice and curiosity, I am working toward becoming a strong full-stack developer.
                   </p>
                   <div className="grid gap-3 sm:grid-cols-2">
-                    <Card className="rounded-2xl border-border/70 bg-secondary/45 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1">
+                    <Card className="rounded-2xl border border-emerald-400/40 bg-emerald-500/10 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1">
                       <CardContent className="space-y-2 p-4">
-                        <p className="text-sm font-semibold">Focus Areas</p>
-                        <p className="text-sm text-muted-foreground">Front-end Development, UI/UX Design, Computer Graphics</p>
+                        <p className="text-sm font-semibold text-emerald-200">Focus Areas</p>
+                        <p className="font-mono text-sm text-emerald-100/75">Front-end Development, UI/UX Design, Computer Graphics</p>
                       </CardContent>
                     </Card>
-                    <Card className="rounded-2xl border-border/70 bg-accent/25 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1">
+                    <Card className="rounded-2xl border border-cyan-300/40 bg-cyan-500/10 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1">
                       <CardContent className="space-y-2 p-4">
-                        <p className="text-sm font-semibold">Interests</p>
-                        <p className="text-sm text-muted-foreground">Programming, Playing Games, Exploring New Technologies</p>
+                        <p className="text-sm font-semibold text-cyan-100">Interests</p>
+                        <p className="font-mono text-sm text-cyan-50/75">Programming, Playing Games, Exploring New Technologies</p>
                       </CardContent>
                     </Card>
                   </div>

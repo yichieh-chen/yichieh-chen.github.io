@@ -74,33 +74,37 @@ function Contact() {
 
         <div className="grid gap-4 lg:grid-cols-2">
           <Interactive3DCard className="rounded-3xl" intensity={7}>
-            <Card className="bg-card/88 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="text-2xl">Let's Connect</CardTitle>
-                <CardDescription className="leading-7">
+            <Card className="terminal-pixel relative overflow-hidden rounded-3xl border border-emerald-400/40 bg-[#091320]/90 text-emerald-100 shadow-lg shadow-emerald-500/20">
+              <div className="pointer-events-none absolute inset-0 terminal-scanlines opacity-45" />
+              <div className="relative z-10 border-b border-emerald-400/30 bg-[#0e1c2d] px-5 py-3">
+                <span className="text-[10px] tracking-[0.15em] text-emerald-200/80">contacts.sys</span>
+              </div>
+              <CardHeader className="relative z-10">
+                <CardTitle className="text-sm text-emerald-100 md:text-base">Let's Connect</CardTitle>
+                <CardDescription className="font-mono text-sm leading-7 text-emerald-100/80">
                   If you are interested in my work or would like to discuss collaboration opportunities, feel free to reach out.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <a className="flex items-center gap-3 rounded-lg border border-border bg-secondary/40 p-3 transition-transform duration-300 hover:-translate-y-0.5" href="mailto:ej.chen.tw@gmail.com">
-                  <Mail className="h-5 w-5 text-primary" />
+              <CardContent className="relative z-10 space-y-3">
+                <a className="flex items-center gap-3 rounded-lg border border-emerald-300/35 bg-emerald-500/10 p-3 transition-transform duration-300 hover:-translate-y-0.5" href="mailto:ej.chen.tw@gmail.com">
+                  <Mail className="h-5 w-5 text-emerald-300" />
                   <div>
-                    <p className="text-sm font-semibold">Email</p>
-                    <p className="text-sm text-muted-foreground">ej.chen.tw@gmail.com</p>
+                    <p className="text-sm font-semibold text-emerald-100">Email</p>
+                    <p className="font-mono text-sm text-emerald-100/75">ej.chen.tw@gmail.com</p>
                   </div>
                 </a>
-                <a className="flex items-center gap-3 rounded-lg border border-border bg-secondary/40 p-3 transition-transform duration-300 hover:-translate-y-0.5" href="https://www.linkedin.com/in/yi-chieh-chen-238595357/" target="_blank" rel="noreferrer">
-                  <Linkedin className="h-5 w-5 text-primary" />
+                <a className="flex items-center gap-3 rounded-lg border border-cyan-300/35 bg-cyan-500/10 p-3 transition-transform duration-300 hover:-translate-y-0.5" href="https://www.linkedin.com/in/yi-chieh-chen-238595357/" target="_blank" rel="noreferrer">
+                  <Linkedin className="h-5 w-5 text-cyan-200" />
                   <div>
-                    <p className="text-sm font-semibold">LinkedIn</p>
-                    <p className="text-sm text-muted-foreground">linkedin.com/in/yi-chieh-chen</p>
+                    <p className="text-sm font-semibold text-cyan-100">LinkedIn</p>
+                    <p className="font-mono text-sm text-cyan-50/75">linkedin.com/in/yi-chieh-chen</p>
                   </div>
                 </a>
-                <a className="flex items-center gap-3 rounded-lg border border-border bg-secondary/40 p-3 transition-transform duration-300 hover:-translate-y-0.5" href="https://github.com/yichieh-chen" target="_blank" rel="noreferrer">
-                  <Github className="h-5 w-5 text-primary" />
+                <a className="flex items-center gap-3 rounded-lg border border-emerald-300/35 bg-emerald-500/10 p-3 transition-transform duration-300 hover:-translate-y-0.5" href="https://github.com/yichieh-chen" target="_blank" rel="noreferrer">
+                  <Github className="h-5 w-5 text-emerald-300" />
                   <div>
-                    <p className="text-sm font-semibold">GitHub</p>
-                    <p className="text-sm text-muted-foreground">github.com/yichieh-chen</p>
+                    <p className="text-sm font-semibold text-emerald-100">GitHub</p>
+                    <p className="font-mono text-sm text-emerald-100/75">github.com/yichieh-chen</p>
                   </div>
                 </a>
               </CardContent>
@@ -108,15 +112,19 @@ function Contact() {
           </Interactive3DCard>
 
           <Interactive3DCard className="rounded-3xl" intensity={7}>
-            <Card className="bg-card/88 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="text-2xl">Send Me a Message</CardTitle>
-                <CardDescription>Send a direct message through Google Form integration.</CardDescription>
+            <Card className="terminal-pixel relative overflow-hidden rounded-3xl border border-emerald-400/40 bg-[#091320]/90 text-emerald-100 shadow-lg shadow-emerald-500/20">
+              <div className="pointer-events-none absolute inset-0 terminal-scanlines opacity-45" />
+              <div className="relative z-10 border-b border-emerald-400/30 bg-[#0e1c2d] px-5 py-3">
+                <span className="text-[10px] tracking-[0.15em] text-emerald-200/80">message_sender.sh</span>
+              </div>
+              <CardHeader className="relative z-10">
+                <CardTitle className="text-sm text-emerald-100 md:text-base">Send Me a Message</CardTitle>
+                <CardDescription className="font-mono text-sm text-emerald-100/80">Send a direct message through Google Form integration.</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative z-10">
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium">Name</label>
+                    <label htmlFor="name" className="text-sm font-medium text-emerald-100">Name</label>
                     <Input
                       type="text"
                       id="name"
@@ -125,11 +133,12 @@ function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="Enter your name"
+                      className="border-emerald-300/35 bg-[#0f2236] text-emerald-100 placeholder:text-emerald-100/45"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium">Email</label>
+                    <label htmlFor="email" className="text-sm font-medium text-emerald-100">Email</label>
                     <Input
                       type="email"
                       id="email"
@@ -138,11 +147,12 @@ function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="your.email@example.com"
+                      className="border-emerald-300/35 bg-[#0f2236] text-emerald-100 placeholder:text-emerald-100/45"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium">Message</label>
+                    <label htmlFor="message" className="text-sm font-medium text-emerald-100">Message</label>
                     <Textarea
                       id="message"
                       name="message"
@@ -151,15 +161,16 @@ function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="What would you like to talk about?"
+                      className="border-emerald-300/35 bg-[#0f2236] text-emerald-100 placeholder:text-emerald-100/45"
                     />
                   </div>
 
-                  <Button type="submit" className="w-full" disabled={submitState === 'submitting'}>
+                  <Button type="submit" className="w-full border border-emerald-300/40 bg-emerald-500/18 text-emerald-100 hover:bg-emerald-500/28" disabled={submitState === 'submitting'}>
                     {submitState === 'submitting' ? 'Sending...' : 'Send Message'}
                   </Button>
 
                   {statusMessage && (
-                    <p className={submitState === 'error' ? 'text-sm text-destructive' : 'text-sm text-muted-foreground'}>
+                    <p className={submitState === 'error' ? 'font-mono text-sm text-red-300' : 'font-mono text-sm text-emerald-100/75'}>
                       {statusMessage}
                     </p>
                   )}

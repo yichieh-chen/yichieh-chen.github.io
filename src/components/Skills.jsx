@@ -20,15 +20,19 @@ function Skills() {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {skills.map((skill) => (
             <Interactive3DCard key={skill.name} className="rounded-2xl" intensity={8}>
-              <Card className="overflow-hidden rounded-2xl border-border/70 bg-card/85 shadow-lg shadow-cyan-100/45 backdrop-blur-sm transition-transform hover:-translate-y-1">
-                <CardHeader className="space-y-3 pb-2">
+              <Card className="terminal-pixel relative overflow-hidden rounded-2xl border border-emerald-400/40 bg-[#091320]/90 text-emerald-100 shadow-lg shadow-emerald-500/20 transition-transform hover:-translate-y-1">
+                <div className="pointer-events-none absolute inset-0 terminal-scanlines opacity-45" />
+                <div className="relative z-10 border-b border-emerald-400/30 bg-[#0e1c2d] px-4 py-2">
+                  <span className="text-[9px] tracking-[0.14em] text-emerald-200/80">skill.log</span>
+                </div>
+                <CardHeader className="relative z-10 space-y-3 pb-2">
                   <div className="flex items-center justify-between gap-3">
-                    <CardTitle className="text-lg">{skill.name}</CardTitle>
-                    <Badge className="rounded-full px-3 py-1">{skill.level}%</Badge>
+                    <CardTitle className="text-sm text-emerald-100">{skill.name}</CardTitle>
+                    <Badge className="rounded-full border border-emerald-300/40 bg-emerald-500/15 px-3 py-1 text-[10px] text-emerald-100">{skill.level}%</Badge>
                   </div>
-                  <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
+                  <div className="h-2.5 w-full overflow-hidden rounded-full border border-emerald-300/30 bg-[#102338]">
                     <div
-                      className="h-full rounded-full bg-[linear-gradient(90deg,oklch(0.6_0.2_31),oklch(0.8_0.16_65),oklch(0.74_0.16_220))]"
+                      className="h-full rounded-full bg-[linear-gradient(90deg,#1ddf9d,#61d9ff)]"
                       style={{ width: `${skill.level}%` }}
                     />
                   </div>
@@ -39,19 +43,23 @@ function Skills() {
         </div>
 
         <Interactive3DCard className="mt-6 rounded-3xl" intensity={6}>
-          <Card className="bg-secondary/35 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-xl">Learning Journey</CardTitle>
-              <CardDescription className="text-sm leading-7 md:text-base">
+          <Card className="terminal-pixel relative overflow-hidden rounded-3xl border border-emerald-400/40 bg-[#091320]/90 text-emerald-100 shadow-lg shadow-emerald-500/20">
+            <div className="pointer-events-none absolute inset-0 terminal-scanlines opacity-45" />
+            <div className="relative z-10 border-b border-emerald-400/30 bg-[#0e1c2d] px-5 py-3">
+              <span className="text-[10px] tracking-[0.15em] text-emerald-200/80">learning_journey.md</span>
+            </div>
+            <CardHeader className="relative z-10">
+              <CardTitle className="text-sm text-emerald-100 md:text-base">Learning Journey</CardTitle>
+              <CardDescription className="font-mono text-sm leading-7 text-emerald-100/80 md:text-base">
                 I am currently focused on learning OpenGL and strengthening my computer graphics foundation. I am also
                 practicing a little Frontend design to improve layout, visual hierarchy, and overall UI quality.
               </CardDescription>
             </CardHeader>
-            <CardContent className="pt-0">
+            <CardContent className="relative z-10 pt-0">
               <div className="flex flex-wrap gap-2">
-                <Badge variant="secondary">OpenGL</Badge>
-                <Badge variant="secondary">Frontend Design</Badge>
-                <Badge variant="secondary">Computer Graphics</Badge>
+                <Badge className="rounded-full border border-emerald-300/40 bg-emerald-500/15 text-[10px] text-emerald-100">OpenGL</Badge>
+                <Badge className="rounded-full border border-cyan-300/40 bg-cyan-500/15 text-[10px] text-cyan-100">Frontend Design</Badge>
+                <Badge className="rounded-full border border-emerald-300/40 bg-emerald-500/15 text-[10px] text-emerald-100">Computer Graphics</Badge>
               </div>
             </CardContent>
           </Card>
