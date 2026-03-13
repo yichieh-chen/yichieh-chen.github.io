@@ -1,13 +1,11 @@
 import { Badge } from '@/components/ui/badge'
+import Interactive3DCard from '@/components/aceternity/Interactive3DCard'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 function Skills() {
   const skills = [
-    { name: 'HTML', level: 85 },
-    { name: 'CSS', level: 80 },
-    { name: 'JavaScript', level: 75 },
-    { name: 'React', level: 60 },
-    { name: 'Node.js', level: 50 },
+    { name: 'C/C++', level: 58 },
+    { name: 'Linux', level: 52 },
     { name: 'Git', level: 70 }
   ]
 
@@ -21,37 +19,43 @@ function Skills() {
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {skills.map((skill) => (
-            <Card key={skill.name} className="overflow-hidden bg-card/95 transition-transform hover:-translate-y-1">
-              <CardHeader className="space-y-3 pb-2">
-                <div className="flex items-center justify-between gap-3">
-                  <CardTitle className="text-lg">{skill.name}</CardTitle>
-                  <Badge className="rounded-full px-3 py-1">{skill.level}%</Badge>
-                </div>
-                <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
-                  <div className="h-full rounded-full bg-gradient-to-r from-primary via-orange-400 to-cyan-500" style={{ width: `${skill.level}%` }} />
-                </div>
-              </CardHeader>
-            </Card>
+            <Interactive3DCard key={skill.name} className="rounded-2xl" intensity={8}>
+              <Card className="overflow-hidden rounded-2xl border-border/70 bg-card/85 shadow-lg shadow-cyan-100/45 backdrop-blur-sm transition-transform hover:-translate-y-1">
+                <CardHeader className="space-y-3 pb-2">
+                  <div className="flex items-center justify-between gap-3">
+                    <CardTitle className="text-lg">{skill.name}</CardTitle>
+                    <Badge className="rounded-full px-3 py-1">{skill.level}%</Badge>
+                  </div>
+                  <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
+                    <div
+                      className="h-full rounded-full bg-[linear-gradient(90deg,oklch(0.6_0.2_31),oklch(0.8_0.16_65),oklch(0.74_0.16_220))]"
+                      style={{ width: `${skill.level}%` }}
+                    />
+                  </div>
+                </CardHeader>
+              </Card>
+            </Interactive3DCard>
           ))}
         </div>
 
-        <Card className="mt-6 bg-secondary/40">
-          <CardHeader>
-            <CardTitle className="text-xl">Learning Journey</CardTitle>
-            <CardDescription className="text-sm leading-7 md:text-base">
-              I started my web development journey with HTML and CSS, then gradually built a strong foundation in JavaScript.
-              I am currently diving deeper into React and also building practical backend knowledge with Node.js. I believe
-              continuous learning is the key to becoming a great developer.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="pt-0">
-            <div className="flex flex-wrap gap-2">
-              <Badge variant="secondary">Continuous Learning</Badge>
-              <Badge variant="secondary">Hands-on Practice</Badge>
-              <Badge variant="secondary">User Experience</Badge>
-            </div>
-          </CardContent>
-        </Card>
+        <Interactive3DCard className="mt-6 rounded-3xl" intensity={6}>
+          <Card className="bg-secondary/35 backdrop-blur-sm">
+            <CardHeader>
+              <CardTitle className="text-xl">Learning Journey</CardTitle>
+              <CardDescription className="text-sm leading-7 md:text-base">
+                I am currently focused on learning OpenGL and strengthening my computer graphics foundation. I am also
+                practicing a little Frontend design to improve layout, visual hierarchy, and overall UI quality.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="secondary">OpenGL</Badge>
+                <Badge variant="secondary">Frontend Design</Badge>
+                <Badge variant="secondary">Computer Graphics</Badge>
+              </div>
+            </CardContent>
+          </Card>
+        </Interactive3DCard>
       </div>
     </section>
   )
