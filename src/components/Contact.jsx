@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Github, Linkedin, Mail } from 'lucide-react'
 
 import Interactive3DCard from '@/components/aceternity/Interactive3DCard'
 import ScrollReveal from '@/components/aceternity/ScrollReveal'
+import TerminalCard from '@/components/aceternity/TerminalCard'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -76,11 +77,7 @@ function Contact() {
         <div className="grid gap-4 lg:grid-cols-2">
           <ScrollReveal delay={80}>
             <Interactive3DCard className="rounded-3xl" intensity={7}>
-              <Card className="terminal-pixel relative overflow-hidden rounded-3xl border border-emerald-400/40 bg-[#091320]/90 text-emerald-100 shadow-lg shadow-emerald-500/20">
-              <div className="pointer-events-none absolute inset-0 terminal-scanlines opacity-45" />
-              <div className="relative z-10 border-b border-emerald-400/30 bg-[#0e1c2d] px-5 py-3">
-                <span className="text-[10px] tracking-[0.15em] text-emerald-200/80">contacts.sys</span>
-              </div>
+              <TerminalCard title="contacts.sys">
               <CardHeader className="relative z-10">
                 <CardTitle className="text-sm text-emerald-100 md:text-base">Let's Connect</CardTitle>
                 <CardDescription className="font-mono text-sm leading-7 text-emerald-100/80">
@@ -110,17 +107,13 @@ function Contact() {
                   </div>
                 </a>
               </CardContent>
-              </Card>
+              </TerminalCard>
             </Interactive3DCard>
           </ScrollReveal>
 
           <ScrollReveal delay={180}>
             <Interactive3DCard className="rounded-3xl" intensity={7}>
-              <Card className="terminal-pixel relative overflow-hidden rounded-3xl border border-emerald-400/40 bg-[#091320]/90 text-emerald-100 shadow-lg shadow-emerald-500/20">
-              <div className="pointer-events-none absolute inset-0 terminal-scanlines opacity-45" />
-              <div className="relative z-10 border-b border-emerald-400/30 bg-[#0e1c2d] px-5 py-3">
-                <span className="text-[10px] tracking-[0.15em] text-emerald-200/80">message_sender.sh</span>
-              </div>
+              <TerminalCard title="message_sender.sh">
               <CardHeader className="relative z-10">
                 <CardTitle className="text-sm text-emerald-100 md:text-base">Send Me a Message</CardTitle>
                 <CardDescription className="font-mono text-sm text-emerald-100/80">Send a direct message through Google Form integration.</CardDescription>
@@ -180,7 +173,7 @@ function Contact() {
                   )}
                 </form>
               </CardContent>
-              </Card>
+              </TerminalCard>
             </Interactive3DCard>
           </ScrollReveal>
         </div>

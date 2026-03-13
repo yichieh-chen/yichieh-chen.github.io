@@ -2,6 +2,7 @@ import { ArrowUpRight, Github } from 'lucide-react'
 
 import Interactive3DCard from '@/components/aceternity/Interactive3DCard'
 import ScrollReveal from '@/components/aceternity/ScrollReveal'
+import TerminalCard from '@/components/aceternity/TerminalCard'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
@@ -41,11 +42,7 @@ function Projects() {
             return (
               <ScrollReveal key={project.title} delay={index * 130}>
                 <Interactive3DCard className="rounded-2xl" intensity={8}>
-                  <Card className="terminal-pixel group relative overflow-hidden rounded-2xl border border-emerald-400/40 bg-[#091320]/90 text-emerald-100 shadow-xl shadow-emerald-500/20 transition-all hover:-translate-y-1 hover:shadow-2xl">
-                    <div className="pointer-events-none absolute inset-0 terminal-scanlines opacity-45" />
-                    <div className="relative z-10 border-b border-emerald-400/30 bg-[#0e1c2d] px-4 py-2.5">
-                      <span className="text-[9px] tracking-[0.14em] text-emerald-200/80">{project.title}.project</span>
-                    </div>
+                  <TerminalCard title={`${project.title}.project`} className="group rounded-2xl shadow-xl transition-all hover:-translate-y-1 hover:shadow-2xl" headerClassName="px-4 py-2.5">
                     <div className="relative z-10 flex h-40 items-center justify-center border-b border-emerald-400/30 bg-[radial-gradient(circle_at_50%_0%,rgba(109,255,189,0.18),transparent_50%),linear-gradient(180deg,#0b1a2b_0%,#0b1524_100%)] text-[10px] uppercase tracking-[0.16em] text-emerald-200/80">
                       <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_60%_40%,rgba(97,217,255,0.18),transparent_50%)]" />
                       project preview
@@ -79,7 +76,7 @@ function Projects() {
                         </Button>
                       )}
                     </CardFooter>
-                  </Card>
+                  </TerminalCard>
                 </Interactive3DCard>
               </ScrollReveal>
             )
