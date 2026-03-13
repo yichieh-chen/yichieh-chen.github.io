@@ -1,8 +1,9 @@
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import profileCatImage from '@/assets/profile-cat.jpg'
 
 function About() {
-  const profileImagePath = '/src/assets/profile-cat.jpg'
+  const profileImagePath = profileCatImage
 
   return (
     <section id="about" className="section-animate px-4 py-14 sm:px-0">
